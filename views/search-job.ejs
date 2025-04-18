@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Jobs - Recruitment System</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Link to the external JS file -->
+    <script src="/js/apply.js" defer></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Recruitment System</h1>
+            <ul class="nav-links">
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="search-jobs">
+        <div class="container">
+            <h2>Search Jobs</h2>
+            <div class="job-list">
+                <% jobs.forEach(job => { %>
+                    <div class="job-card">
+                      <h3><%= job.title %></h3>
+                      <p><%= job.description %></p>
+                      <p><strong>Location:</strong> <%= job.location %></p>
+                      <p><strong>Salary:</strong> ₹<%= job.salary %></p>
+
+                      <!-- Apply Button -->
+                      <a href="javascript:void(0);" class="btn" id="apply-btn-<%= job._id %>" onclick="showPopup('<%= job._id %>')">Apply Now</a>
+
+                      <!-- Popup for applying -->
+                      <div id="popup-<%= job._id %>" style="display:none;">
+                          <div class="popup">
+                              <p>Are you sure you want to apply for this job?</p>
+                              <button onclick="applyJob('<%= job._id %>')">Yes, Apply</button>
+                              <button onclick="document.getElementById('popup-<%= job._id %>').style.display='none';">Cancel</button>
+                          </div>
+                      </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

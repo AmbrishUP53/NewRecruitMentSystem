@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apply for Jobs - Recruitment System</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Recruitment System</h1>
+            <ul class="nav-links">
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="apply-job">
+        <div class="container">
+            <h2>Apply for Jobs</h2>
+            <div class="job-list">
+                <% jobs.forEach(job => { %>
+                    <div class="job-card">
+                      <h3><%= job.jobTitle %></h3>
+                      <p><%= job.jobDescription %></p>
+                      <p><strong>Location:</strong> <%= job.jobLocation %></p>
+                      <p><strong>Salary:</strong> ₹<%= job.jobSalary %></p>
+                  
+                      <form action="/apply/<%= job._id %>" method="POST">
+                        <button type="submit">Apply</button>
+                      </form>
+                    </div>
+                  <% }) %>
+                  
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

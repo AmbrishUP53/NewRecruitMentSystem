@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post a Job - Recruitment System</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Recruitment System</h1>
+            <ul class="nav-links">
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="post-job">
+        <div class="container">
+            <h2>Post a New Job</h2>
+            <form action="/post-job" method="POST">
+                <label for="title">Job Title</label>
+                <input type="text" name="title" id="title" required>
+
+                <label for="description">Description</label>
+                <textarea name="description" id="description" required></textarea>
+
+                <label for="location">Location</label>
+                <input type="text" name="location" id="location" required>
+
+                <label for="salary">Salary</label>
+                <input type="text" name="salary" id="salary" required>
+
+                <button type="submit" class="btn">Post Job</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>

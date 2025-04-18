@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Recruitment System</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Recruitment System</h1>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="dashboard">
+        <div class="container">
+            <h2>Welcome to your Dashboard!</h2>
+            <p>Manage your profile and applications from here.</p>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Your Applied Jobs</h3>
+                    <ul>
+                        <% if (appliedJobs.length > 0) { %>
+                            <% appliedJobs.forEach(job => { %>
+                                <li>
+                                    <strong><%= job.jobTitle %></strong><br>
+                                    <%= job.company %> | <%= job.location %> | <%= job.salary %><br>
+                                    <button disabled>Already Applied</button>
+                                </li>
+                            <% }) %>
+                        <% } else { %>
+                            <p>You have not applied for any jobs yet.</p>
+                        <% } %>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Search Jobs</h3>
+                    <p>Browse available jobs</p>
+                    <a href="/search-job" class="btn">Search Jobs</a>
+                </div>
+
+                <div class="card">
+                    <h3>Post a Job</h3>
+                    <p>If you're an employer, you can post jobs here</p>
+                    <a href="/post-job" class="btn">Post a Job</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
